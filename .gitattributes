@@ -1,0 +1,4 @@
+# Everything here runs on the Raspberry Pi; shell scripts with CRLF line endings fail
+# there. Keep LF in the repository and in every checkout, whatever core.autocrlf says.
+* text=auto eol=lf
+*.pdf binary

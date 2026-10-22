@@ -1,0 +1,33 @@
+# Start the recorder at boot.
+#
+# Installed by setup.sh, which replaces __USER__ and __HOME__ with the
+# current user and home directory.
+#
+# Why it runs inside tmux: the cameras are exclusive. The instance started at
+# boot already holds all of them, so starting rig.py again over SSH would
+# fail to open them. Inside tmux, `tmux attach -t rig` connects to the same
+# process, so the OLED, the physical buttons and an SSH keyboard all drive
+# the same rig.py and the same state machine.
+#
+#     tmux attach -t rig          attach (detach with Ctrl-B then D; the program keeps running)
+#     systemctl status rig        status
+#     sudo systemctl stop rig     stop (required before running rig.py by hand)
+
+[Unit]
+Description=4DGS rig recorder (in tmux, attach with: tmux attach -t rig)
+After=multi-user.target
+
+[Service]
+Type=forking
+User=__USER__
+Environment=HOME=__HOME__
+WorkingDirectory=__HOME__/stg-recorder
+ExecStart=/usr/bin/tmux new-session -d -s rig "python3 __HOME__/stg-recorder/rig.py"
+ExecStop=/usr/bin/tmux kill-session -t rig
+# Restart after a crash, but not in a fast loop: with a camera disconnected
+# it would restart endlessly. Five seconds leaves time for systemctl stop.
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

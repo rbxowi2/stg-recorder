@@ -1,0 +1,68 @@
+=== camera list ===
+  4 cameras detected:
+    cam_A   /dev/video2   xhci-hcd.0
+    cam_B   /dev/video6   xhci-hcd.0
+    cam_C   /dev/video0   xhci-hcd.1
+    cam_D   /dev/video4   xhci-hcd.1
+    ! xhci-hcd.0 has 2 cameras (cam_A, cam_B): a shared bus can drop frames
+    ! xhci-hcd.1 has 2 cameras (cam_C, cam_D): a shared bus can drop frames
+
+=== camera list (none found) ===
+  ERROR no camera found. Check lsusb and ls /dev/video*
+
+=== main menu (manual exposure) ===
+
+========================================================
+  rig recorder
+========================================================
+  Cameras     4 ready  cam_A  cam_B  cam_C  cam_D
+  Exposure    3.3 ms  gain 1.0  (manual)
+  Resolution  1920x1080  byte rate 30.5 MB/s
+  Output      <HERE>/captures
+  Core        v<VER> (<DATE>)
+--------------------------------------------------------
+  1) Record
+  2) Calibration set
+  3) Parameters
+  4) Warm up again
+  5) Meter exposure (when the scene or light changes; suggests, never applies by itself)
+  q) Quit
+
+=== main menu (auto exposure) ===
+
+========================================================
+  rig recorder
+========================================================
+  Cameras     4 ready  cam_A  cam_B  cam_C  cam_D
+  Exposure    3.3 ms  gain 1.0  (auto: scene 3.1 stops / window 2.0 stops / loss 0.82%)
+  Resolution  1920x1080  byte rate 30.5 MB/s
+  Output      <HERE>/captures
+  Core        v<VER> (<DATE>)
+--------------------------------------------------------
+  1) Record
+  2) Calibration set
+  3) Parameters
+  4) Warm up again
+  5) Meter exposure (when the scene or light changes; suggests, never applies by itself)
+  q) Quit
+
+=== parameters ===
+
+    1) Resolution        1920x1080
+    2) Exposure          3300 us (3.3 ms)
+    3) Gain              1.0
+    4) Warm-up           6.0 s
+    5) Default length    30.0 s
+    7) Expected cameras  cam_A, cam_B, cam_C, cam_D
+    6) Auto exposure     off (shutter 1.0-8.0 ms)
+
+=== parameters (auto exposure on, no expected cameras) ===
+
+    1) Resolution        1920x1080
+    2) Exposure          3300 us (3.3 ms)
+    3) Gain              1.0
+    4) Warm-up           6.0 s
+    5) Default length    30.0 s
+    7) Expected cameras  (not set)
+    6) Auto exposure     on (shutter 1.0-8.0 ms)
+

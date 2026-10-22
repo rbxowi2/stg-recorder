@@ -1,0 +1,15 @@
+# Allow rig.py to shut the system down safely without a password.
+#
+# In the field there is no SSH and no keyboard, only two buttons. Cutting the
+# power during a write can corrupt the file system, so the menu needs a safe
+# shutdown entry, and `poweroff` requires root.
+#
+# The permission is limited to this single command; it does not grant
+# password-less sudo in general.
+#
+# Installed by setup.sh, which replaces __USER__ with the current user and
+# validates the file with `visudo -c`. Never skip that check: a syntax error
+# in sudoers disables sudo entirely, and then sudo can no longer be used to
+# fix it.
+
+__USER__ ALL=(root) NOPASSWD: /usr/sbin/poweroff

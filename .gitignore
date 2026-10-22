@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+# per-machine settings, created on the Pi
+config.json
+config_backups/
+# recordings
+captures/
+# calibration sweep outputs
+sweep.json
+gsweep.json
