@@ -98,6 +98,48 @@ suggestion. The recorder then checks that all four cameras actually took the
 new exposure (by comparing image brightness) and stops on an error screen if
 one did not.
 
+## Shooting a calibration set
+
+The calibration set gives the rig's intrinsics and extrinsics. No
+calibration board is needed: the rig photographs a static scene from many
+orientations.
+
+When:
+
+- On the day of shooting. Calibration accuracy degrades over time even when
+  the rig is untouched.
+- After anything on the rig changed: a camera moved, USB ports swapped, or
+  the focus ring turned (focus changes the intrinsics).
+
+Scene:
+
+- Nothing in the scene may move: no people, pets, screens, moving leaves or
+  changing shadows.
+- About 2.5 m from the rig, ideally indoors. Avoid anything at infinity, such
+  as sky or a distant street through a window.
+- Texture everywhere, including the image corners (lens distortion is
+  largest there). Avoid a single flat wall and repetitive patterns such as
+  tiles.
+
+Procedure:
+
+1. Start calibration mode: OLED menu **calib set**, or `python3 rig.py --calib`
+   over SSH.
+2. Place the rig at a position in the scene. At each position shoot a 3 x 3
+   grid of orientations: turn the rig left / centre / right combined with
+   up / centre / down (9 sets). Neighbouring orientations should overlap by
+   roughly a third of the frame.
+3. Move the rig to another position and repeat. Use at least 3 positions
+   (27 sets or more).
+4. Hold the rig still for every set. With the buttons, `v` starts a 3 s
+   countdown before the shot so the press does not shake the rig, and `^`
+   finishes. Over SSH, Enter shoots and `d` finishes.
+5. Check that every set reports all four cameras (OLED: last set OK).
+
+Then measure the six distances between the lens centres (not the housings)
+with calipers, copy the `calib_*` folder to the PC and run the **Calibrate**
+tab of stg-studio. The result must show PASSED.
+
 ## Output
 
 Recordings and calibration sets go to `~/stg-recorder/captures/`.
