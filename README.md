@@ -165,6 +165,10 @@ captures/
 streams instead of scanning for folders. All timestamps use
 `CLOCK_MONOTONIC`, so video and audio can be aligned exactly.
 
+The fields that stg-studio actually reads, and how to prepare the same data
+with other cameras, are specified in
+[stg-studio/DATA_FORMAT.md](https://github.com/rbxowi2/stg-studio/blob/main/DATA_FORMAT.md).
+
 ## config.json
 
 Holds only the values tuned on this machine; everything else is
