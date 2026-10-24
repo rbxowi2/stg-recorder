@@ -98,6 +98,9 @@ suggestion. The recorder then checks that all four cameras actually took the
 new exposure (by comparing image brightness) and stops on an error screen if
 one did not.
 
+**The rig must stay in a fixed position and must not move during a
+recording.**
+
 ## Shooting a calibration set
 
 What the calibration images must be, and a recommended way to shoot them
