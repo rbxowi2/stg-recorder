@@ -114,9 +114,9 @@ This section only covers operating the recorder.
 4. Copy the `calib_*` folder from `captures/` to the PC and run the
    **Calibrate** tab of stg-studio.
 
-The recorder stores the cameras' MJPEG frames at full resolution without
-processing them, as the requirements ask. Keep the focus rings untouched
-between calibration and recording.
+Calibration sets and recordings come from the same cameras in the same
+mode, stored as the cameras deliver them, so they share the same source as
+required. Keep the focus rings untouched between calibration and recording.
 
 ## Output
 
